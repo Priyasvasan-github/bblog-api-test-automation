@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>demo.api.poc.challenge.BBlog</groupId>
-    <artifactId>api-test-automation</artifactId>
+    <artifactId>bblog-api-test-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -69,6 +69,42 @@
             <version>20180813</version>
         </dependency>
 
+        <!-- Adding dependency for Fastexml for contract validations-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>${orika.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>2.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>6.0.2.Final</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
         <dependency>
@@ -90,7 +126,53 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
 
+                    <targetVersion>4.0</targetVersion>
+                    <useLongIntegers>true</useLongIntegers>
+                    <!--<includeJsr305Annotations>true</includeJsr305Annotations>-->
+                    <includeJsr303Annotations>true</includeJsr303Annotations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>GenerateCommentsSchema</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                            <targetPackage>com.json.model.articles</targetPackage>
+                            <sourceDirectory>${basedir}/src/main/resources/schema/Article.json</sourceDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>GeneratePostsSchema</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                            <targetPackage>com.json.model.profile</targetPackage>
+                            <sourceDirectory>${basedir}/src/main/resources/schema/Profile.json</sourceDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>GenerateUsersSchema</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                            <targetPackage>com.json.model.user</targetPackage>
+                            <sourceDirectory>${basedir}/src/main/resources/schema/User.json</sourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>

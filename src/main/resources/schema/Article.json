@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "article": {
+        "slug": "how-to-train-your-dragon",
+        "title": "How to train your dragon",
+        "description": "Ever wonder how?",
+        "body": "It takes a Jacobian",
+        "tagList": [
+          "dragons",
+          "training"
+        ],
+        "createdAt": "2016-02-18T03:22:56.637Z",
+        "updatedAt": "2016-02-18T03:48:35.824Z",
+        "favorited": false,
+        "favoritesCount": 0,
+        "author": {
+          "username": "john",
+          "bio": "I work at Backbase",
+          "image": "https://i.stack.imgur.com/xHWG8.jpg",
+          "following": false
+        }
+      }
+    }
+  ],
+  "required": [
+    "article"
+  ],
+  "properties": {
+    "article": {
+      "$id": "#/properties/article",
+      "type": "object",
+      "title": "The article schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "slug": "how-to-train-your-dragon",
+          "title": "How to train your dragon",
+          "description": "Ever wonder how?",
+          "body": "It takes a Jacobian",
+          "tagList": [
+            "dragons",
+            "training"
+          ],
+          "createdAt": "2016-02-18T03:22:56.637Z",
+          "updatedAt": "2016-02-18T03:48:35.824Z",
+          "favorited": false,
+          "favoritesCount": 0,
+          "author": {
+            "username": "john",
+            "bio": "I work at Backbase",
+            "image": "https://i.stack.imgur.com/xHWG8.jpg",
+            "following": false
+          }
+        }
+      ],
+      "required": [
+        "title",
+        "description",
+        "body"
+      ],
+      "properties": {
+        "slug": {
+          "$id": "#/properties/article/properties/slug",
+          "type": "string",
+          "title": "The slug schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "how-to-train-your-dragon"
+          ]
+        },
+        "title": {
+          "$id": "#/properties/article/properties/title",
+          "type": "string",
+          "title": "The title schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "How to train your dragon"
+          ]
+        },
+        "description": {
+          "$id": "#/properties/article/properties/description",
+          "type": "string",
+          "title": "The description schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "Ever wonder how?"
+          ]
+        },
+        "body": {
+          "$id": "#/properties/article/properties/body",
+          "type": "string",
+          "title": "The body schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "It takes a Jacobian"
+          ]
+        },
+        "tagList": {
+          "$id": "#/properties/article/properties/tagList",
+          "type": "array",
+          "title": "The tagList schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              "dragons",
+              "training"
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/article/properties/tagList/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/article/properties/tagList/items/anyOf/0",
+                "type": "string",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "dragons",
+                  "training"
+                ]
+              }
+            ]
+          }
+        },
+        "createdAt": {
+          "$id": "#/properties/article/properties/createdAt",
+          "type": "string",
+          "title": "The createdAt schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "2016-02-18T03:22:56.637Z"
+          ]
+        },
+        "updatedAt": {
+          "$id": "#/properties/article/properties/updatedAt",
+          "type": "string",
+          "title": "The updatedAt schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "2016-02-18T03:48:35.824Z"
+          ]
+        },
+        "favorited": {
+          "$id": "#/properties/article/properties/favorited",
+          "type": "boolean",
+          "title": "The favorited schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "favoritesCount": {
+          "$id": "#/properties/article/properties/favoritesCount",
+          "type": "integer",
+          "title": "The favoritesCount schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "author": {
+          "$id": "#/properties/article/properties/author",
+          "type": "object",
+          "title": "The author schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "username": "john",
+              "bio": "I work at Backbase",
+              "image": "https://i.stack.imgur.com/xHWG8.jpg",
+              "following": false
+            }
+          ],
+          "required": [
+            "username",
+            "bio",
+            "image",
+            "following"
+          ],
+          "properties": {
+            "username": {
+              "$id": "#/properties/article/properties/author/properties/username",
+              "type": "string",
+              "title": "The username schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "john"
+              ]
+            },
+            "bio": {
+              "$id": "#/properties/article/properties/author/properties/bio",
+              "type": "string",
+              "title": "The bio schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "I work at Backbase"
+              ]
+            },
+            "image": {
+              "$id": "#/properties/article/properties/author/properties/image",
+              "type": "string",
+              "title": "The image schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "https://i.stack.imgur.com/xHWG8.jpg"
+              ]
+            },
+            "following": {
+              "$id": "#/properties/article/properties/author/properties/following",
+              "type": "boolean",
+              "title": "The following schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
