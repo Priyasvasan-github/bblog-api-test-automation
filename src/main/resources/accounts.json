@@ -1,0 +1,20 @@
+[
+  {
+    "id": "registered",
+    "email": "sripriyavasan@gmail.com",
+    "username": "sripriyasrinivasan",
+    "password": "SripriyaTest"
+  },
+  {
+    "id": "valid",
+    "email": "john@john.josahnx",
+    "username": "validName",
+    "password": "johnjohnx"
+  },
+  {
+    "id": "anonymous",
+    "email": "john@john.johnx",
+    "username": "superUser",
+    "password": "Test2011"
+  }
+]
