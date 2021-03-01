@@ -14,7 +14,7 @@ Feature: Verify user can follow and un-follow a profile
     When the user decides to un-follow user with username followMeToTest
     Then the user is not following user with username followMeToTest
 
-  @wip
+  @manual
   Scenario: Verify user can't follow his own profile
     Given A registered user have a token to access API
     When He attempts to follow his own profile
